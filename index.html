@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Mahashivratri Kolkata Invite</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    body { font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif; text-align:center; background:#f3f4f6; margin:0; padding:18px; }
+    h2 { margin: 6px 0 14px; }
+    .card { max-width: 440px; margin: 0 auto; background: #fff; border-radius: 14px; padding: 14px; box-shadow: 0 6px 22px rgba(0,0,0,.08); }
+    input, button { width: 100%; padding: 12px; margin: 8px 0; font-size: 16px; box-sizing: border-box; }
+    button { cursor:pointer; border:0; border-radius: 10px; }
+    #generateBtn { background:#111827; color:#fff; }
+    #downloadBtn { background:#2563eb; color:#fff; }
+    #useCropBtn { background:#059669; color:#fff; }
+    canvas { width: 100%; margin-top: 12px; border-radius: 12px; background:#e5e7eb; }
+    .hint { font-size: 13px; color: #6b7280; margin-top: 8px; text-align:left; }
+    .tips { background:#f9fafb; border:1px solid #e5e7eb; border-radius: 12px; padding: 10px 12px; margin: 8px 0 12px; text-align:left; }
+    .tips b { display:block; margin-bottom:6px; }
+    .tips ul { margin:0; padding-left: 18px; }
+    .row { display:flex; gap:10px; align-items:center; }
+    .row > * { flex:1; }
+    #cropWrap { display:none; margin-top: 10px; }
+    #cropCanvas { width: 100%; border-radius: 12px; background:#111827; touch-action:none; }
+    .label { font-size: 13px; color:#374151; text-align:left; margin-top:6px; }
+  </style>
+</head>
+
+<body>
+  <div class="card">
+    <h2>Create your invite</h2>
+
+    <div class="tips">
+      <b>Photo tips (for best results)</b>
+      <ul>
+        <li>Use a clear selfie with your face visible.</li>
+        <li>Avoid group photos, sunglasses, masks.</li>
+      </ul>
+    </div>
+
+    <input id="nameInput" placeholder="Your name (e.g., Pretha)" />
+    <input type="file" id="photoInput" accept="image/*" />
+
+    <!-- Crop UI -->
+    <div id="cropWrap">
+      <div class="label">Crop your face (drag to move, pinch/scroll or use slider to zoom)</div>
+      <canvas id="cropCanvas" width="900" height="900"></canvas>
+      <input id="zoomSlider" type="range" min="1" max="4" step="0.01" value="1.6" />
+      <button id="useCropBtn">Use this crop</button>
+    </div>
+
+    <button id="generateBtn" disabled>Generate Invitation</button>
+
+    <!-- Output invite -->
+    <canvas id="outCanvas" width="1080" height="1350"></canvas>
+
+    <button id="downloadBtn" disabled>Download</button>
+    <div class="hint">Your photo stays on your phone (no server upload).</div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
